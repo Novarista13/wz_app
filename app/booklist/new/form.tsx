@@ -34,7 +34,7 @@ const Form = () => {
   }, []);
 
   return (
-    <div className="max-w-lg p-8 bg-grey-50 border rounded-lg shadow bg-gray-800 border-gray-700 basis-1/2">
+    <div className="max-w-lg p-8 bg-grey-50 border rounded-lg shadow bg-gray-800 border-gray-700 basis-1/2 mx-auto">
       {/* {error && (
         <Callout.Root color="red" className="mb-5">
           <Callout.Text>{error}</Callout.Text>

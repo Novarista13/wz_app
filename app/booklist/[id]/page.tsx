@@ -15,7 +15,7 @@ const Page = ({ params }: { params: { id: string } }) => {
   }, [params.id]);
 
   return (
-    <div className="flex justify-center">{book && <Form data={book} />}</div>
+    <div>{book && <Form data={book} />}</div>
   );
 };
 

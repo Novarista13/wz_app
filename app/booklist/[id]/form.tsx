@@ -15,15 +15,7 @@ interface BookForm {
 
 const Form = ({ data }: any) => {
   const router = useRouter();
-  const { register, handleSubmit } = useForm<BookForm>({
-    defaultValues: {
-      book_uniq_idx: data.book_uniq_idx,
-      co_id: data.co_id,
-      bookname: data.bookname,
-      publisher_id: data.publisher_id,
-      price: data.price,
-    },
-  });
+  const { register, handleSubmit } = useForm<BookForm>();
   const [file, setFile] = useState<File>();
   const [contentOwner, setContentOwner] = useState([]);
   const [publisher, setPublisher] = useState([]);
@@ -42,7 +34,7 @@ const Form = ({ data }: any) => {
   }, []);
 
   return (
-    <div className="max-w-lg p-8 bg-grey-50 border rounded-lg shadow bg-gray-800 border-gray-700 basis-1/2 text-left">
+    <div className="max-w-lg p-8 bg-grey-50 border rounded-lg shadow bg-gray-800 border-gray-700 basis-1/2 text-left mx-auto">
       {/* {error && (
         <Callout.Root color="red" className="mb-5">
           <Callout.Text>{error}</Callout.Text>
@@ -105,7 +97,11 @@ const Form = ({ data }: any) => {
               </option>
               {contentOwner &&
                 contentOwner.map((c: any) => (
-                  <option key={c.idx} value={c.idx}>
+                  <option
+                    key={c.idx}
+                    selected={c.idx === data.co_id ? true : false}
+                    value={c.idx}
+                  >
                     {c.name}
                   </option>
                 ))}
@@ -133,7 +129,11 @@ const Form = ({ data }: any) => {
               </option>
               {publisher &&
                 publisher.map((p: any) => (
-                  <option key={p.idx} value={p.idx}>
+                  <option
+                    key={p.idx}
+                    selected={p.idx === data.publisher_id ? true : false}
+                    value={p.idx}
+                  >
                     {p.name}
                   </option>
                 ))}
